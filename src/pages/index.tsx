@@ -4,10 +4,85 @@ import FileUpload from "../components/FileUpload";
 import AnalysisResults from "../components/AnalysisResults";
 import TipsSection from "../components/TipsSection";
 import { CVAnalysis } from "../types";
-// import Header from "@/components/Header";
+import Header from "@/components/Header";
+import Instructions from "@/components/Instructions";
+import Footer from "@/components/Footer";
+// import ResultsCard from "@/components/ResultsCard";
+import { FileText, X } from "lucide-react";
+
+// interface ResultsData {
+//   score: number;
+//   metrics: Array<{
+//     label: string;
+//     value: string;
+//     status: "success" | "error" | "info";
+//   }>;
+//   recommendations: string[];
+//   keywords: string[];
+// }
 
 const Home: React.FC = () => {
   const [analysis, setAnalysis] = useState<CVAnalysis | null>(null);
+
+  // const [results, setResults] = useState<ResultsData | null>(null);
+
+  // const simulateAnalysis = (): ResultsData => {
+  //   const scores = [75, 82, 68, 91, 77];
+  //   const score = scores[Math.floor(Math.random() * scores.length)];
+
+  //   return {
+  //     score,
+  //     metrics: [
+  //       { label: "Palabras totales", value: "450", status: "info" },
+  //       {
+  //         label: "Información de contacto",
+  //         value: "Completa",
+  //         status: "success",
+  //       },
+  //       {
+  //         label: "Experiencia laboral",
+  //         value: "Falta detalle",
+  //         status: "error",
+  //       },
+  //       { label: "Educación", value: "Presente", status: "success" },
+  //       {
+  //         label: "Habilidades técnicas",
+  //         value: "12 detectadas",
+  //         status: "success",
+  //       },
+  //       {
+  //         label: "Formato del documento",
+  //         value: "Compatible",
+  //         status: "success",
+  //       },
+  //     ],
+  //     recommendations: [
+  //       "Añade más palabras clave relevantes para tu sector profesional",
+  //       "Incluye métricas específicas en tu experiencia laboral (números, porcentajes, logros)",
+  //       "Agrega una sección de habilidades técnicas más detallada",
+  //       "Optimiza la longitud del CV (recomendado: 1-2 páginas)",
+  //       "Incluye certificaciones profesionales si las tienes",
+  //     ],
+  //     keywords: [
+  //       "React",
+  //       "JavaScript",
+  //       "Scrum",
+  //       "Git",
+  //       "Node.js",
+  //       "TypeScript",
+  //       "Agile",
+  //       "SQL",
+  //       "Python",
+  //       "Management",
+  //       "Leadership",
+  //       "Analytics",
+  //     ],
+  //   };
+  // };
+
+  // useEffect(() => {
+  //   setResults(simulateAnalysis());
+  // }, []);
 
   return (
     <>
@@ -19,116 +94,48 @@ const Home: React.FC = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mb-32">
-        <div className="max-w-3xl mx-auto">
-          {/* <Header /> */}
-          <div className="text-center mb-12">
-            <h1 className="text-3xl font-extrabold text-dark sm:text-4xl">
-              Analizador de CV para Sistemas ATS
-            </h1>
-            <p className="mt-3 text-xl text-gray-500">
-              Sube tu currículum para evaluar su compatibilidad con sistemas de
-              reclutamiento automatizado
-            </p>
-          </div>
-          <FileUpload onAnalysisComplete={setAnalysis} />
-
-          {/* {!analysis && (
-            <>
-              <FileUpload onAnalysisComplete={setAnalysis} />
-
-              <section className="text-center py-8">
-                <div className="max-w-2xl mx-auto space-y-4">
-                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white font-inter">
-                    ¿Cómo funciona?
-                  </h2>
-                  <div className="grid md:grid-cols-3 gap-6 mt-8">
-                    <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border dark:border-gray-700 transition-colors">
-                      <div className="w-12 h-12 bg-red-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-primary font-bold text-lg">
-                          1
-                        </span>
+      <body className="bg-gray-50 dark:bg-gray-900">
+        <Header />
+        <main className=" bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 mb-32">
+          <div className="max-w-3xl mx-auto">
+            {!analysis ? (
+              <>
+                <FileUpload onAnalysisComplete={setAnalysis} />
+                <Instructions />
+              </>
+            ) : (
+              <>
+                <div className="bg-white rounded-xl shadow-lg border-2 border-gray-200 p-8 max-w-md mx-auto">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <FileText className="w-8 h-8 text-primary" />
+                      <div>
+                        <p className="font-medium text-gray-900 font-inter">
+                          {analysis.file.name}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          {(analysis.file.size / 1024 / 1024).toFixed(2)} MB
+                        </p>
                       </div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2 font-inter">
-                        Sube tu CV
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm font-inter">
-                        Carga tu currículum en formato PDF o DOCX
-                      </p>
                     </div>
-
-                    <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border dark:border-gray-700 transition-colors">
-                      <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-primary font-bold text-lg">
-                          2
-                        </span>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2 font-inter">
-                        Análisis automático
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm font-inter">
-                        Evaluamos tu CV con criterios ATS profesionales
-                      </p>
-                    </div>
-
-                    <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border dark:border-gray-700 transition-colors">
-                      <div className="w-12 h-12 bg-success-100 dark:bg-success-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-success font-bold text-lg">
-                          3
-                        </span>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2 font-inter">
-                        Recibe recomendaciones
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm font-inter">
-                        Obtén sugerencias específicas para mejorar
-                      </p>
-                    </div>
+                    <button
+                      onClick={() => setAnalysis(null)}
+                      className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
                   </div>
                 </div>
-              </section>
-            </>
-          )} */}
 
-          {analysis && (
-            <>
-              <AnalysisResults analysis={analysis} />
-              <TipsSection recommendations={analysis.recommendations} />
-            </>
-          )}
-        </div>
-      </main>
-
-      {/* <footer className="w-full mt-16 py-8 border-t border-gray-200 bg-white transition-colors">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-gray-600 font-inter">
-            Desarrollado con ❤️ por{" "}
-            <a
-              href="https://fullsnacker.github.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Fullsnacker
-            </a>{" "}
-            para ayudarte a conseguir el trabajo de tus sueños
-          </p>
-        </div>
-      </footer> */}
-      <footer className="w-full mt-16 py-8 border-t border-gray-200 bg-white transition-colors fixed bottom-10 left-0">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-gray-600 font-inter">
-            Desarrollado con ❤️ por{" "}
-            <a
-              href="https://fullsnacker.github.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Fullsnacker
-            </a>{" "}
-            para ayudarte a conseguir el trabajo de tus sueños
-          </p>
-        </div>
-      </footer>
+                <AnalysisResults analysis={analysis} />
+                {/* {results && <ResultsCard results={results} />} */}
+                <TipsSection recommendations={analysis.recommendations} />
+              </>
+            )}
+          </div>
+        </main>
+        <Footer />
+      </body>
     </>
   );
 };

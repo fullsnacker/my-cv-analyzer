@@ -11,6 +11,7 @@ export interface CVAnalysis {
   };
   recommendations: string[];
   uniqueKeywords: string[];
+  file: File;
 }
 
 export interface FileParser {

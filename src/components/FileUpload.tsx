@@ -34,7 +34,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onAnalysisComplete }) => {
         );
       }
 
-      const analysis = analyzeCV(text);
+      const analysis = analyzeCV(text, file);
       onAnalysisComplete(analysis);
     } catch (error) {
       console.error("Error:", error);

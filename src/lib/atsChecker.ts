@@ -1,7 +1,7 @@
 import { CVAnalysis } from "../types";
 import { keywords } from "./keyword";
 
-export const analyzeCV = (text: string): CVAnalysis => {
+export const analyzeCV = (text: string, file: File): CVAnalysis => {
   const cleanText = text.replace(/\s+/g, " ").trim();
   const wordCount = cleanText.split(/\s+/).length;
   const charCount = cleanText.length;
@@ -60,6 +60,7 @@ export const analyzeCV = (text: string): CVAnalysis => {
     );
 
   return {
+    file,
     score: Math.min(100, score),
     metrics: {
       wordCount,
