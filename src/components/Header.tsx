@@ -1,7 +1,4 @@
-import React from "react";
-// import ThemeToggle from "./ThemeToggle";
-
-const Header = () => {
+export const Header = () => {
   return (
     <header className="bg-gray-900 shadow-sm border-b border-gray-800 transition-colors mb-5">
       <div className="max-w-6xl mx-auto px-6 py-8">
@@ -23,5 +20,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

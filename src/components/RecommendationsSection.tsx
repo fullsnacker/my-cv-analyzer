@@ -1,12 +1,12 @@
-
-import React from 'react';
-import { AlertCircle, TrendingUp } from 'lucide-react';
+import { AlertCircle, TrendingUp } from "lucide-react";
 
 interface RecommendationsSectionProps {
   recommendations: string[];
 }
 
-const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({ recommendations }) => {
+export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
+  recommendations,
+}) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center space-x-2">
@@ -15,7 +15,7 @@ const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({ recomme
           Recomendaciones para Mejorar
         </h3>
       </div>
-      
+
       <div className="space-y-3">
         {recommendations.map((recommendation, index) => (
           <div
@@ -32,5 +32,3 @@ const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({ recomme
     </div>
   );
 };
-
-export default RecommendationsSection;

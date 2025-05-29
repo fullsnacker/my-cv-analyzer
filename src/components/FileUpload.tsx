@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { extractTextFromPDF } from "../lib/pdfParser";
-import { extractTextFromDOCX } from "../lib/docxParser";
-import { analyzeCV } from "../lib/atsChecker";
 import { CVAnalysis } from "../types";
+import { analyzeCV, extractTextFromDOCX, extractTextFromPDF } from "@/lib";
 
 interface FileUploadProps {
   onAnalysisComplete: (analysis: CVAnalysis) => void;
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ onAnalysisComplete }) => {
+export const FileUpload: React.FC<FileUploadProps> = ({
+  onAnalysisComplete,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -78,7 +78,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onAnalysisComplete }) => {
             {isLoading ? "Procesando..." : "Sube tu CV (PDF o DOCX)"}
           </span>
           <span className="text-sm text-gray-500 mt-1">
-            Arrastra o haz clic para seleccionar
+            Haz click para seleccionar
           </span>
         </div>
       </label>
@@ -91,5 +91,3 @@ const FileUpload: React.FC<FileUploadProps> = ({ onAnalysisComplete }) => {
     </div>
   );
 };
-
-export default FileUpload;

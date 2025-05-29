@@ -1,23 +1,21 @@
-
-import React from 'react';
-import { Check, X } from 'lucide-react';
+import { Check, X } from "lucide-react";
 
 interface Metric {
   label: string;
   value: string;
-  status: 'success' | 'error' | 'info';
+  status: "success" | "error" | "info";
 }
 
 interface MetricsSectionProps {
   metrics: Metric[];
 }
 
-const MetricsSection: React.FC<MetricsSectionProps> = ({ metrics }) => {
+export const MetricsSection: React.FC<MetricsSectionProps> = ({ metrics }) => {
   const getIcon = (status: string) => {
     switch (status) {
-      case 'success':
+      case "success":
         return <Check className="w-5 h-5 text-success" />;
-      case 'error':
+      case "error":
         return <X className="w-5 h-5 text-red-500" />;
       default:
         return <div className="w-5 h-5 rounded-full bg-gray-300" />;
@@ -29,7 +27,7 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ metrics }) => {
       <h3 className="text-lg font-semibold text-gray-900 font-inter">
         Análisis Detallado
       </h3>
-      
+
       <div className="grid gap-3">
         {metrics.map((metric, index) => (
           <div
@@ -42,14 +40,10 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ metrics }) => {
                 {metric.label}
               </span>
             </div>
-            <span className="text-gray-600 font-inter">
-              {metric.value}
-            </span>
+            <span className="text-gray-600 font-inter">{metric.value}</span>
           </div>
         ))}
       </div>
     </div>
   );
 };
-
-export default MetricsSection;

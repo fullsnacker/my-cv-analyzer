@@ -1,5 +1,5 @@
 import { CVAnalysis } from "../types";
-import { keywords } from "./keyword";
+import { keywords } from "./keywords";
 
 export const analyzeCV = (text: string, file: File): CVAnalysis => {
   const cleanText = text.replace(/\s+/g, " ").trim();

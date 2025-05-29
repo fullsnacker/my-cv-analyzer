@@ -1,6 +1,4 @@
-import React from "react";
-
-const Instructions = () => {
+export const Instructions = () => {
   return (
     <section className="text-center py-8">
       <div className="max-w-2xl mx-auto space-y-4">
@@ -48,5 +46,3 @@ const Instructions = () => {
     </section>
   );
 };
-
-export default Instructions;

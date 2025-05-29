@@ -1,6 +1,4 @@
-import React from "react";
-
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white p-4 text-center">
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -19,5 +17,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

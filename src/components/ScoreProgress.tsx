@@ -1,22 +1,22 @@
-
-import React from 'react';
-
 interface ScoreProgressProps {
   score: number;
   className?: string;
 }
 
-const ScoreProgress: React.FC<ScoreProgressProps> = ({ score, className = '' }) => {
+export const ScoreProgress: React.FC<ScoreProgressProps> = ({
+  score,
+  className = "",
+}) => {
   const getScoreColor = (score: number) => {
-    if (score >= 80) return 'bg-success';
-    if (score >= 60) return 'bg-yellow-500';
-    return 'bg-red-500';
+    if (score >= 80) return "bg-success";
+    if (score >= 60) return "bg-yellow-500";
+    return "bg-red-500";
   };
 
   const getScoreText = (score: number) => {
-    if (score >= 80) return 'Excelente';
-    if (score >= 60) return 'Bueno';
-    return 'Necesita mejoras';
+    if (score >= 80) return "Excelente";
+    if (score >= 60) return "Bueno";
+    return "Necesita mejoras";
   };
 
   return (
@@ -29,18 +29,26 @@ const ScoreProgress: React.FC<ScoreProgressProps> = ({ score, className = '' }) 
           {score}/100
         </span>
       </div>
-      
+
       <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
         <div
-          className={`h-full transition-all duration-1000 ease-out ${getScoreColor(score)}`}
+          className={`h-full transition-all duration-1000 ease-out ${getScoreColor(
+            score
+          )}`}
           style={{ width: `${score}%` }}
         />
       </div>
-      
+
       <div className="flex justify-between items-center">
-        <span className={`text-sm font-medium font-inter ${
-          score >= 80 ? 'text-success' : score >= 60 ? 'text-yellow-600' : 'text-red-600'
-        }`}>
+        <span
+          className={`text-sm font-medium font-inter ${
+            score >= 80
+              ? "text-success"
+              : score >= 60
+              ? "text-yellow-600"
+              : "text-red-600"
+          }`}
+        >
           {getScoreText(score)}
         </span>
         <span className="text-sm text-gray-500 font-inter">
@@ -50,5 +58,3 @@ const ScoreProgress: React.FC<ScoreProgressProps> = ({ score, className = '' }) 
     </div>
   );
 };
-
-export default ScoreProgress;

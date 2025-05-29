@@ -17,3 +17,14 @@ export interface CVAnalysis {
 export interface FileParser {
   (file: File): Promise<string>;
 }
+
+export interface ResultsData {
+  score: number;
+  metrics: Array<{
+    label: string;
+    value: string;
+    status: "success" | "error" | "info";
+  }>;
+  recommendations: string[];
+  keywords: string[];
+}

@@ -1,15 +1,13 @@
-
-import React from 'react';
-import ScoreProgress from './ScoreProgress';
-import MetricsSection from './MetricsSection';
-import RecommendationsSection from './RecommendationsSection';
+import { MetricsSection } from "./MetricsSection";
+import { RecommendationsSection } from "./RecommendationsSection";
+import { ScoreProgress } from "./ScoreProgress";
 
 interface ResultsData {
   score: number;
   metrics: Array<{
     label: string;
     value: string;
-    status: 'success' | 'error' | 'info';
+    status: "success" | "error" | "info";
   }>;
   recommendations: string[];
   keywords: string[];
@@ -20,9 +18,14 @@ interface ResultsCardProps {
   className?: string;
 }
 
-const ResultsCard: React.FC<ResultsCardProps> = ({ results, className = '' }) => {
+export const ResultsCard: React.FC<ResultsCardProps> = ({
+  results,
+  className = "",
+}) => {
   return (
-    <div className={`bg-white rounded-xl shadow-lg border border-gray-200 p-8 space-y-8 animate-fade-in ${className}`}>
+    <div
+      className={`bg-white rounded-xl shadow-lg border border-gray-200 p-8 space-y-8 animate-fade-in mt-2 ${className}`}
+    >
       {/* Header con keywords detectadas */}
       <div className="text-center p-4 bg-gradient-to-r from-primary-50 to-success-50 rounded-lg">
         <p className="text-lg font-semibold text-gray-900 mb-2 font-inter">
@@ -57,11 +60,10 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ results, className = '' }) =>
       {/* Footer con mensaje de éxito */}
       <div className="text-center p-4 bg-success-50 rounded-lg border border-success-200">
         <p className="text-success-700 font-medium font-inter">
-          ✅ Cumple con el {Math.round((results.score / 100) * 100)}% de los estándares ATS
+          ✅ Cumple con el {Math.round((results.score / 100) * 100)}% de los
+          estándares ATS
         </p>
       </div>
     </div>
   );
 };
-
-export default ResultsCard;
