@@ -3,11 +3,11 @@ import { Moon, Sun } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 
 const ThemeToggle: React.FC = () => {
-  const [isDark, setIsDark] = useState(false); // Default to dark mode
+  const [isDark, setIsDark] = useState(true); // Default to dark mode
 
   useEffect(() => {
     // Set dark mode as default on initial load
-    // document.documentElement.classList.add("dark");
+    document.documentElement.classList.add("dark");
   }, []);
 
   const toggleTheme = () => {

@@ -94,9 +94,9 @@ const Home: React.FC = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className="bg-gray-50 dark:bg-gray-900">
+      <body className="bg-gray-900">
         <Header />
-        <main className=" bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 mb-32">
+        <main className=" bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 mb-32">
           <div className="max-w-3xl mx-auto">
             {!analysis ? (
               <>
