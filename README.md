@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 MY-CV-Analyzer
 
-## Getting Started
+**Analiza tu currículum para sistemas ATS (Applicant Tracking Systems) directamente en tu navegador**
 
-First, run the development server:
+## ✨ Características
+
+✅ **Análisis completo de CVs** en PDF o DOCX  
+✅ **Puntaje ATS** (0-100) con métricas detalladas  
+✅ **Recomendaciones inteligentes** para mejorar tu currículum  
+✅ **100% privado** - Todo se procesa en tu navegador  
+✅ **Sin backend** - Fácil despliegue en Vercel/Netlify
+
+## 🚀 Cómo Usar
+
+1. **Sube tu CV** (PDF o Word)
+2. **Obtén tu puntaje ATS** al instante
+3. **Mejora tu CV** con las recomendaciones
+
+## Ver deploy en Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://my-cv-analyzer.vercel.app)
+
+## 🛠 Tecnologías
+
+- **Next.js** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **PDF.js** (para análisis de PDFs)
+- **Mammoth.js** (para análisis de DOCX)
+
+## 🧑‍💻 Desarrollo
+
+### Requisitos
+
+- Node.js 18+
+- npm 9+
+
+### Instalación
 
 ```bash
+git clone https://github.com/fullsnacker/my-cv-analyzer.git
+cd my-cv-analyzer
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```markdown
+src/
+├── components/ # Componentes React
+├── lib/ # Lógica de análisis
+├── styles/ # Estilos globales
+└── pages/ # Rutas de la aplicación
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contribuir
 
-## Learn More
+¡PRs son bienvenidos! Sigue estos pasos:
 
-To learn more about Next.js, take a look at the following resources:
+1. Haz fork del proyecto
+2. Crea tu branch (`git checkout -b feature/awesome-feature`)
+3. Haz commit de tus cambios (`git commit -m 'Add awesome feature'`)
+4. Haz push al branch (`git push origin feature/awesome-feature`)
+5. Abre un Pull Request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MIT
 
-## Deploy on Vercel
+## 🗺 Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Soporte para imágenes (OCR)
+- [ ] Plantillas de CV ATS-friendly
+- [ ] Análisis por industria
