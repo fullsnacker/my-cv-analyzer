@@ -55,7 +55,9 @@ export const ResultsCard: React.FC<ResultsCardProps> = ({
       <MetricsSection metrics={results.metrics} />
 
       {/* Recomendaciones */}
-      <RecommendationsSection recommendations={results.recommendations} />
+      {results.recommendations.length > 0 && (
+        <RecommendationsSection recommendations={results.recommendations} />
+      )}
 
       {/* Footer con mensaje de éxito */}
       <div className="text-center p-4 bg-success-50 rounded-lg border border-success-200">
