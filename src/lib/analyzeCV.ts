@@ -16,7 +16,10 @@ export const analyzeCV = (text: string, file: File): CVAnalysis => {
   const hasEducation = /(educación|formación académica|estudios)/i.test(text);
   const hasSkills = /(habilidades|competencias|skills)/i.test(text);
 
-  const keywordList = text
+  //remover comas y puntos de text
+  const cleanedText = text.replace(/[.,]/g, "");
+
+  const keywordList = cleanedText
     .toLowerCase()
     .split(/\s+/)
     .filter((word) => keywords.includes(word));
