@@ -8,12 +8,17 @@ export const analyzeCV = (text: string, file: File): CVAnalysis => {
 
   // Detección de secciones
   const hasContactInfo =
-    /(contacto|información personal|email|@|teléfono)/i.test(text);
-  const hasExperience =
-    /(experiencia|experiencia laboral|historial laboral|empleo anterior)/i.test(
+    /(contact|contacto|personal information|información personal|email|@|phone|teléfono)/i.test(
       text
     );
-  const hasEducation = /(educación|formación académica|estudios)/i.test(text);
+  const hasExperience =
+    /(experience|experiencia|work experience|experiencia laboral|work history|historial laboral|last job|empleo anterior)/i.test(
+      text
+    );
+  const hasEducation =
+    /(education|educación|acedemic|formación académica|studies|study|estudios)/i.test(
+      text
+    );
   const hasSkills = /(habilidades|competencias|skills)/i.test(text);
 
   //remover comas y puntos de text

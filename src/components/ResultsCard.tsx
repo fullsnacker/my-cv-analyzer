@@ -32,19 +32,16 @@ export const ResultsCard: React.FC<ResultsCardProps> = ({
           🔍 {results.keywords.length} palabras clave detectadas
         </p>
         <div className="flex flex-wrap justify-center gap-2">
-          {results.keywords.slice(0, 6).map((keyword, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-white text-primary text-sm font-medium rounded-full shadow-sm"
-            >
-              {keyword}
-            </span>
-          ))}
-          {results.keywords.length > 6 && (
-            <span className="px-3 py-1 bg-white text-gray-500 text-sm font-medium rounded-full shadow-sm">
-              +{results.keywords.length - 6} más
-            </span>
-          )}
+          {results.keywords
+            .slice(0, results.keywords.length)
+            .map((keyword, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-white text-primary text-sm font-medium rounded-full shadow-sm"
+              >
+                {keyword}
+              </span>
+            ))}
         </div>
       </div>
 

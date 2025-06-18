@@ -15,17 +15,19 @@ export const parseAnalysis = (analysis: CVAnalysis): ResultsData => {
       },
       {
         label: "Información de contacto",
-        value: hasContactInfo ? "Completa" : "Falta detalle",
+        value: hasContactInfo ? "Completa" : "Falta sección de contacto",
         status: hasContactInfo ? "success" : "error",
       },
       {
         label: "Experiencia laboral",
-        value: hasExperience ? "Completa" : "Falta detalle",
+        value: hasExperience
+          ? "Completa"
+          : "Falta sección de experiencia laboral",
         status: hasExperience ? "success" : "error",
       },
       {
         label: "Educación",
-        value: hasEducation ? "Presente" : "Falta detalle",
+        value: hasEducation ? "Presente" : "Falta sección de educación",
         status: hasEducation ? "success" : "error",
       },
       {
@@ -35,7 +37,7 @@ export const parseAnalysis = (analysis: CVAnalysis): ResultsData => {
       },
       {
         label: "Formato del documento",
-        value: "Compatible",
+        value: "Compatible con ATS",
         status: "success",
       },
     ],
